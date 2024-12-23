@@ -7,7 +7,7 @@ from geojson import Feature, Point, FeatureCollection, dumps
 
 def get_station_address_feature(features, data, index, coordinate_key):
     full_address = data[index][0]["station"] + " " + data[index][0]["unit_id"] 
-    full_address += " acknowledged"
+    full_address += " " + coordinate_key
     longitude = data[index][0]['unit_status'][coordinate_key].get('longitude')
     latitude = data[index][0]['unit_status'][coordinate_key].get('latitude')
     my_point = Point((longitude, latitude))
